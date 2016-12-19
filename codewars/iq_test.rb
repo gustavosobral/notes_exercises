@@ -1,3 +1,8 @@
+# Name:  IQ Test
+# Level: 6 kyu
+# URL:   https://www.codewars.com/kata/552c028c030765286c00007d/train/ruby
+
+
 def iq_test(numbers)
   odd_index = 0
   odd_counter = 0

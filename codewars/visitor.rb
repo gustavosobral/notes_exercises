@@ -1,3 +1,8 @@
+# Name:  PatternCraft - Visitor
+# Level: 7 kyu
+# URL:   https://www.codewars.com/kata/patterncraft-visitor/train/ruby
+
+
 class Marine
   attr_accessor :health
   
