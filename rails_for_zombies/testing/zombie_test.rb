@@ -46,4 +46,38 @@ class ZombieTest < ActiveSupport::TestCase
   should validate_presence_of(:graveyard)
   should ensure_length_of(:name).is_at_most(15)
   should have_many(:tweets)
+
+  # mocha gem
+  test 'Decapitate should set status to dead again' do
+    # stub
+    @zombie.weapon.stubs(:slice)
+    @zombie.decapitate
+    assert 'dead again', @zombie.status
+  end
+
+  test 'Decapitate should call slice' do
+    # mock
+    @zombie.weapon.expects(:slice)
+    @zombie.decapitate
+  end
+
+  test 'Geolocate calls the Zoogle graveyard locator' do
+    # mocks method and ensures the correct params get sent
+    Zoogle.expects(:graveyard_locator).with(@zombie.graveyard)
+      .returns({latitude: 2, longitude: 3})
+    @zombie.geolocate
+  end
+
+  test 'Geolocate returns properly formatted lat, long' do
+    Zoogle.stubs(:graveyard_locator).with(@zombie.graveyard)
+      .returns({latitude: 2, longitude: 3})
+      assert_equal '2, 3', @zombie.geolocate
+  end
+
+  test "geolocate_with_object properly formatted lat, long" do
+    # stub the returned object
+    loc = stub(latitude: 2, longitude: 3)
+    Zoogle.stubs(:graveyard_locator).returns(loc)
+    assert_equal "2, 3", @zombie.geolocate_with_object
+  end
 end
