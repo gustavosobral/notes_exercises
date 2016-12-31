@@ -1,6 +1,11 @@
 require 'test_helper' # Configuration file
 
 class ZombieTest < ActiveSupport::TestCase
+
+  def setup
+    @z = zombies(:ash)
+  end
+
   test 'Valid with all attributes' do
     z = Zombie.new
     z.name = 'Ash'
@@ -9,10 +14,9 @@ class ZombieTest < ActiveSupport::TestCase
   end
 
   test 'Invalid name gives error message' do
-    z = zombies(:ash)
-    z.name = nil
-    z.valid?
-    assert_match /can't be blank/. z.errors[:name].join,
+    @z.name = nil
+    @z.valid?
+    assert_match /can't be blank/. @z.errors[:name].join,
       'Presence error not found on zombie'
   end
 
@@ -22,13 +26,11 @@ class ZombieTest < ActiveSupport::TestCase
   end
 
   test 'Can generate avatar_url' do
-    z = zombies(:ash)
-    assert_equal "http://zombitar.com/#{z.id}.jpg", z.avatar_url
+    assert_equal "http://zombitar.com/#{@z.id}.jpg", @z.avatar_url
   end
 
   test 'Should respond to tweets' do
-    z = zombies(:ash)
-    assert_respond_to z, :tweets
+    assert_respond_to @z, :tweets
   end
 
   test 'Should contain tweets' do
@@ -36,7 +38,12 @@ class ZombieTest < ActiveSupport::TestCase
   end
 
   test 'Should contain only tweets taht belong to zombie' do
-    z = zombies(:ash)
-    assert z.tweets.all? { |t| t.zombie == z }
+    assert @z.tweets.all? { |t| t.zombie == @z }
   end
+
+  # shoulda gem
+  should validate_presence_of(:name)
+  should validate_presence_of(:graveyard)
+  should ensure_length_of(:name).is_at_most(15)
+  should have_many(:tweets)
 end
