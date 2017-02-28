@@ -1,8 +1,8 @@
 # Ruby and Rails Exercises
 
-A set of ruby and rails exercises to practice.
+A set of ruby and rails codes to learn and practice.
 
-Exercises are from:
+Exercises are basically from:
 
 * [Codewars](https://www.codewars.com "Codewars Homepage")
-* [Codeschool](https://www.codeschool.com/ "Codeschool Homepage")
+* [Codeschool Ruby Path](https://www.codeschool.com/learn/ruby "Codeschool Ruby Path")
