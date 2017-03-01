@@ -18,6 +18,7 @@ constraints subdomain: 'api' do
   end
 end
 
+# Shorter syntax for constraints and namespaces
 namespace :api, path: '/', constraints:  { subdomain: 'api' } do
   resources :zombies
   resources :humans
