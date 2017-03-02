@@ -17,7 +17,6 @@ class ZombiesController < ApplicationController
 end
 
 ### SPEC
-
 class ChangingLocalesTest < ActionDispatch::IntegrationTest
   test 'returns list of zombies in english' do
     get '/zombies', {}, {'Accept-Language' => 'en', 'Accept' => Mime::JSON }

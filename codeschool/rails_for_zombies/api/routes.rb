@@ -25,7 +25,6 @@ namespace :api, path: '/', constraints:  { subdomain: 'api' } do
 end
 
 ### Initializer (initializers/inflections.rb)
-
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym 'API'
 end

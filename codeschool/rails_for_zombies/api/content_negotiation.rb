@@ -11,7 +11,6 @@ class ZombiesController < ApplicationController
 end
 
 ### SPEC
-
 class ListingZombiesTest < ActionDispatch::IntegrationTest
   test 'returns zombies in JSON' do
     get '/zombies', {}, { 'Accept' => Mime::JSON }
