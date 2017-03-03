@@ -1,4 +1,4 @@
-# listing_episodes.rb
+# listing_episodes_test.rb
 class ListingEpisotesTest < ActionDispatch::IntegrationTest
   setup { @user = User.create!(username: 'foo', password: 'secret') }
 
