@@ -45,3 +45,16 @@ end
 while_signed_in_as(user) do
   retrieve_list(list_name)
 end
+
+### Block Given ###
+
+class Tweet
+  def initialize
+    yield self if block_given?
+  end
+end
+
+t = Tweet.new do |tweet|
+  tweet.title = 'New Tweet'
+  tweet.created_at = Time.now
+end
