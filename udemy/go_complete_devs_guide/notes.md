@@ -60,3 +60,18 @@ Receivers set up method on variables that we create
 ```
 []byte("Hi there!")
 ```
+
+# Section 4
+
+## Struct
+
+Collection of types. Variables without assingnment on Go are initialize with Zero values
+
+## Pointers
+
+Go is a pass by value language.
+
+From address to value, do `*address`
+From value to address, do `&value`
+
+Slice is Reference Type
