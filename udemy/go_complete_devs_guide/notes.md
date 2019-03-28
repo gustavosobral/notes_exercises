@@ -107,3 +107,17 @@ type Reader interface {
 ```
 
 `Reader` and `Writer` interfaces are good interfaces examples on Go
+
+# Section 7
+
+## Go Routines
+
+Every program has at least one Go Routine, the Main Routine. Go can uses one multiple CPU Cores, but by default Go uses just One Core. Go Scheduler is the entity responsible for spawning and handling Routines.
+
+## Channels
+
+Channels are used to comunicate between different running routines. Channels are typed
+
+## Function Literal
+
+Function literal is a unamed function. We never ever attempt to reference the same variable in two different routines.
