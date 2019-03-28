@@ -53,7 +53,7 @@ fruits[:2]
 
 ## Custom types and Receivers
 
-Receivers set up method on variables that we create
+Method receivers set up method on variables that we create
 
 ## Type conversion
 
@@ -75,3 +75,35 @@ From address to value, do `*address`
 From value to address, do `&value`
 
 Slice is Reference Type
+
+# Section 5
+
+## Map
+
+Map is a collection of key value pairs. The set of key and the values have to be from the same type.
+
+# Section 6
+
+## Interfaces
+
+There is Concrete Types and Interface Types. 
+Interfaces are not generic types.
+Interfaces are implicit.
+If we specify an interface as a value inside of a struct, the value can have any value so long it fullfills the interface.
+
+```
+type Response struct {
+    Body io.ReadCloser
+}
+
+type ReadCloser interface {
+    Reader
+    Closer
+}
+
+type Reader interface {
+    Read(p []byte) (n int, err error)
+}
+```
+
+`Reader` and `Writer` interfaces are good interfaces examples on Go
