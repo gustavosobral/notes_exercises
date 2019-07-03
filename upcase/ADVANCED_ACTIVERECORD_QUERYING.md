@@ -2,7 +2,7 @@
 
 ## belongs_to
 
-```
+```ruby
 class Location < ActiveRecord::Base
   belongs_to :region
 
@@ -27,8 +27,7 @@ end
 
 ## has_many
 
-```
-
+```ruby
 class Person < ActiveRecord::Base
   belongs_to :location
   belongs_to :manager, class_name: "Person", foreign_key: :manager_id
