@@ -3,6 +3,7 @@
 # URL:   https://www.codewars.com/kata/54ba84be607a92aa900000f1
 
 # Mine
+## Notes: Could have used String .chars method
 def is_isogram(string)
   storage = {}
   string.split('').each do |char|
