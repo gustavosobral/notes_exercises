@@ -16,6 +16,7 @@
 - `.upcase` - All letters high
 - `.downcase` - All letters low
 - `.strip` - Remove white spaces
+- `.tr` - Returns a copy of the string with the matching characters replaced
 
 ## Enumerable
 
@@ -32,6 +33,9 @@
 - `.compact` - Remove all empty elements
 - `.flatten` - Remove nesting
 - `.transpose` - Transpose arrays and columns
+- `.cycle` - Walk trough all the elements of the array N cycles. If no N is given, it loops forever
+- `.permutation` - Yield all permutations possible of the array
+- `.combination` - Yield all combinations of length n of the array
 
 ## Flow Structures
 
