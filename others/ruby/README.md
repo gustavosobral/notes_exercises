@@ -35,6 +35,7 @@
 
 ## Flow Structures
 
+Switch case:
 ```ruby
 case year
 when 0..2000
@@ -44,8 +45,17 @@ when 2000..10000
 end
 ```
 
+Variable arguments:
+```ruby
+def print_all(*args)
+  ...
+end
+```
+
 ## TODO:
 
 - Procs
 - Blocks / Yield
 - MiniTest
+- Reading Files and CSV's
+- Reading from the command line
