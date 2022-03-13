@@ -1,5 +1,7 @@
 class ResistorColorTrio
-  COLOR_TO_DIGIT = {
+  class InvalidColorError < ArgumentError; end
+
+  BAND = {
     'black' => 0,
     'brown' => 1,
     'red' => 2,
@@ -19,12 +21,12 @@ class ResistorColorTrio
   end
 
   def label
-    "Resistor value: #{resistance_value}"
+    "Resistor value: #{value}"
   end
 
   private
 
-  def resistance_value
+  def value
     if resistance > 1000
       "#{resistance / 1000} kiloohms"
     else
@@ -40,7 +42,10 @@ class ResistorColorTrio
   end
 
   def color_to_number(color_code)
-    raise ArgumentError if COLOR_TO_DIGIT[color_code].nil?
-    COLOR_TO_DIGIT[color_code]
+    if BAND[color_code].nil?
+      raise InvalidColorError.new "#{color_code} is an invalid color. Valid colors are: #{BAND.keys}"
+    end
+
+    BAND[color_code]
   end
 end
