@@ -12,18 +12,12 @@ Example test file:
 ```ruby
 require 'minitest/autorun'
 
-require_relative 'tournament'
+require_relative 'leap_calculator'
 
-class TournamentTest < Minitest::Test
-  def test_just_the_header_if_no_input
+class LeapCalculatorTest < Minitest::Test
+  def test_if_1997_is_not_leap
     # skip
-    input = <<~INPUT
-
-    INPUT
-    expected = <<~TALLY
-      Team                           | MP |  W |  D |  L |  P
-    TALLY
-    assert_equal expected, Tournament.tally(input)
+    assert_equal false, LeapCalculator.new(1997).leap?
   end
 end
 ```
