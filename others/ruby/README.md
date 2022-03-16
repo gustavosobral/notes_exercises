@@ -1,5 +1,15 @@
 # Ruby useful methods and concepts
 
+Table of Contents
+1. [Integer](#integer)
+2. [String](#string)
+3. [Enumerable](#enumerable)
+4. [Array](#array)
+5. [Flow Structures](#flow-structures)
+6. [CSV](#csv)
+7. [Files](#files)
+8. [Command Line](#command-line)
+
 ## Integer
 
 - `.digits` - Return the digits on a number (Order is reverse)
@@ -52,6 +62,11 @@
 ```ruby
 => 'Words to be replaced'.tr('aeo', '130')
 => "W0rds t0 b3 r3pl1c3d"
+```
+- `.start_with?` - Returns true if the string start with any of the parameters
+```ruby
+=> 'AB2 23'.start_with?('X', 'AB')
+=> true
 ```
 
 ## Enumerable
@@ -126,8 +141,50 @@ def print_all(*args)
 end
 ```
 
-## TODO:
+## Others
 
-- Review Procs / Blocks / Yield
-- Reading Files and CSV's
-- Reading from the command line
+### CSV
+
+```ruby
+require 'csv'
+
+csv = CSV.read('my_csv_file.csv', headers: true)
+
+csv.class # CSV::Table
+csv.first.class # CSV::Row
+```
+
+### Files
+
+```ruby
+File.read('my_file') # Reads the whole file at once, load everything in memory
+
+f = File.open(filename)
+f.each_byte # Read file byte by byte
+```
+
+### Command line
+
+```ruby
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+puts ARGV
+
+options = {}
+parser = OptionParser.new do |opts|
+  opts.on("-b", "--base [BASE]", String) do |base|
+    options[:base] = base
+  end
+end
+
+begin
+  parser.parse!
+
+  puts options
+  puts ARGV
+rescue OptionParser::InvalidArgument => e
+  STDERR.puts "#{e.message.capitalize}. Run '#{File.basename($0)}' --help for details."
+end
+```
