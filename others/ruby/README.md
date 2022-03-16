@@ -188,3 +188,18 @@ rescue OptionParser::InvalidArgument => e
   STDERR.puts "#{e.message.capitalize}. Run '#{File.basename($0)}' --help for details."
 end
 ```
+
+### Struct and OpenStruct
+
+```ruby
+Wheel = Struct.new(:rim, :tire) do
+  def diamater
+    rim + (tire * 2)
+  end
+end
+```
+
+```ruby
+cat = OpenStruct.new(color: 'black')
+cat.color
+```
