@@ -1,6 +1,6 @@
 # Ruby useful methods and concepts
 
-Table of Contents
+Table of Contents:
 1. [Integer](#integer)
 2. [String](#string)
 3. [Enumerable](#enumerable)
@@ -90,6 +90,11 @@ Table of Contents
 ```ruby
 => [2,3,10].inject(:*)
 => 60
+```
+- `.each_with_object` - Iterates over a collection, passing the current element and the __memo__ to the block
+```ruby
+=> ['john', 'doe'].each_with_object({}) { |str, hsh| hsh[str] = str.chars.count }
+=> {"john"=>4, "doe"=>3}
 ```
 
 ## Array
