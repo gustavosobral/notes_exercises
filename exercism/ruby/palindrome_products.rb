@@ -8,12 +8,19 @@ class Palindromes
   end
 
   def generate
-    @palindromes = (min_factor..max_factor).to_a.repeated_combination(2).map do |combination|
+    palindromes_hash = {}
+    (min_factor..max_factor).to_a.repeated_combination(2).map do |combination|
       num = combination.inject(:*)
       if num.digits == num.digits.reverse
-        Number.new(num, [combination])
+        if palindromes_hash[num]
+          factors = palindromes_hash[num].factors + [combination]
+          palindromes_hash[num] = Number.new(num, factors)
+        else
+          palindromes_hash[num] = Number.new(num, [combination])
+        end
       end
-    end.compact.sort
+    end
+    @palindromes = palindromes_hash.values.sort
   end
 
   def largest
@@ -23,6 +30,8 @@ class Palindromes
   def smallest
     palindromes.first
   end
+
+  private
 
   Number = Struct.new(:value, :factors) do
     def <=> (other)
