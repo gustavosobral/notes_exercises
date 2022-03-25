@@ -68,6 +68,16 @@ Table of Contents:
 => 'AB2 23'.start_with?('X', 'AB')
 => true
 ```
+- `.scan` - Iterates trough string returning what matches as element in an array
+```ruby
+=> 'return only, matches!'.scan(/\w+/)
+=> ["return", "only", "matches"]
+```
+- `.ord` - Return ASCII number of a char
+```ruby
+=> 'a'.ord
+=> 97
+```
 
 ## Enumerable
 
@@ -95,6 +105,11 @@ Table of Contents:
 ```ruby
 => ['john', 'doe'].each_with_object({}) { |str, hsh| hsh[str] = str.chars.count }
 => {"john"=>4, "doe"=>3}
+```
+- `.each_slice(n)` - Slice the enumerable in groups of n
+```ruby
+=> (1..10).each_slice(3).to_a
+=> [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
 ```
 
 ## Array
@@ -126,6 +141,12 @@ Table of Contents:
 => [1,2,3,4,5,6,7].max(2)
 => [7, 6]
 ```
+
+### Operations
+
+- Intersection (`&`)
+- Union (`|`)
+- Difference (`-`)
 
 ## Flow Structures
 
